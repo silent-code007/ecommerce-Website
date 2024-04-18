@@ -8,12 +8,11 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<HomePage />}/>
-          <Route path="/about" element={<About />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/policy" element={<Policy />}></Route>
-          <Route path="/*" element={<PagenotFound />}></Route>
-
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/contact" element={<Contact />}></Route>
+        <Route path="/policy" element={<Policy />}></Route>
+        <Route path="/*" element={<PagenotFound />}></Route>
       </Routes>
     </>
   );
