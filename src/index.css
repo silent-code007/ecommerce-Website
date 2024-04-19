@@ -9,3 +9,28 @@
 
 
 /* font-family:'Poppins',sans-serif; */
+/* vanbar*/
+
+.navbar {
+  font-family: 'Poppins',serif;
+  font-size: 17px;
+  line-height: 26px;
+  text-transform: uppercase;
+  box-shadow: 0 8px 6px -6px;
+  border-bottom: 0px solid gray !important;
+}
+
+.nav-link {
+  font-weight: 300 !important;
+
+}
+
+.active {
+  border-bottom: 1px solid black;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-family: "Roboto",serif;
+  
+}
