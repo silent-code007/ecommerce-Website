@@ -26,6 +26,10 @@ export const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    answer: {
+      type: {},
+      required: true,
+    },
 
     role: {
       type: Number,

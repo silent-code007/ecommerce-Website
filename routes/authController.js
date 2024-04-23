@@ -83,6 +83,48 @@ export const registerController = async (req, res) => {
 };
 
 // POST LOGIN
+// export const registerController = async (req, res) => {
+//   try {
+//     const { name, email, password, phone, address } = req.body;
+
+//     // validations
+//     if (!name || !email || !password || !phone || !address) {
+//       return res.status(400).json({ message: "All fields are required" });
+//     }
+
+//     // checking user
+//     const existingUser = await userModel.findOne({ email });
+
+//     if (existingUser) {
+//       console.log("user already exists")
+//       return res.status(400).json({ message: "User already exists" });
+//     }
+
+//     const hashedPassword = await hashPassword(password);
+//     const user = new userModel({
+//       name,
+//       email,
+//       phone,
+//       address,
+//       password: hashedPassword,
+//     });
+
+//     await user.save();
+
+//     res.status(201).json({
+//       success: true,
+//       message: "User registered successfully",
+//       user,
+//     });
+//   } catch (error) {
+//     console.error("Error in registration:", error);
+//     res.status(500).json({
+//       success: false,
+//       message: "Error in registration",
+//       error: error.message,
+//     });
+//   }
+// };
 
 export const loginController = async (req, res) => {
   try {
