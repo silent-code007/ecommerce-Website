@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import {Layout} from "./../../components/Layout/Layout";
+import { Layout } from "./../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 import "../../styles/AuthStyles.css";
 const Register = () => {
   const [name, setName] = useState("");
@@ -16,27 +16,33 @@ const Register = () => {
   // form function
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       const res = await axios.post("/api/v1/auth/register", {
         name,
         email,
         password,
         phone,
-        address,
         answer,
+        address,
       });
-      if (res && res.data.success) {
-        toast.success(res.data && res.data.message);
+
+      console.log("Response:", res); // Log the entire response
+
+      if (res && res.data && res.data.success) {
+        toast.success(res.data.message);
         navigate("/login");
       } else {
+        console.log("First error:", res.data.message); // Log the error message
         toast.error(res.data.message);
       }
     } catch (error) {
-      console.log(error);
+      console.log("Axios error:", error); // Log the Axios error
       toast.error("Something went wrong");
     }
   };
 
+  
   return (
     <Layout title="Register - Ecommer App">
       <div className="form-container" style={{ minHeight: "90vh" }}>
@@ -48,7 +54,7 @@ const Register = () => {
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="form-control"
-              id="exampleInputEmail1"
+              id="exampleInputName"
               placeholder="Enter Your Name"
               required
               autoFocus
@@ -60,7 +66,7 @@ const Register = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="form-control"
-              id="exampleInputEmail1"
+              id="exampleInputEmail"
               placeholder="Enter Your Email "
               required
             />
@@ -71,7 +77,7 @@ const Register = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="form-control"
-              id="exampleInputPassword1"
+              id="exampleInputPassword"
               placeholder="Enter Your Password"
               required
             />
@@ -82,33 +88,36 @@ const Register = () => {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               className="form-control"
-              id="exampleInputEmail1"
+              id="exampleInputPhone"
               placeholder="Enter Your Phone"
               required
             />
           </div>
+
+          <div className="mb-3">
+            <input
+              type="text"
+              value={address}
+              onChange={(e) => setAnswer(e.target.value)}
+              className="form-control"
+              id="exampleInputSport"
+              placeholder="Enter Your Favourite Sport"
+              required
+            />
+          </div>
+
           <div className="mb-3">
             <input
               type="text"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               className="form-control"
-              id="exampleInputEmail1"
+              id="exampleInputAddress"
               placeholder="Enter Your Address"
               required
             />
           </div>
-          <div className="mb-3">
-            <input
-              type="text"
-              value={answer}
-              onChange={(e) => setAnswer(e.target.value)}
-              className="form-control"
-              id="exampleInputEmail1"
-              placeholder="What is Your Favorite sports"
-              required
-            />
-          </div>
+
           <button type="submit" className="btn btn-primary">
             REGISTER
           </button>
