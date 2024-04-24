@@ -45,7 +45,7 @@ const ForgotPasssword = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="form-control"
-              id="exampleInputEmail1"
+              id="exampleInputEmail"
               placeholder="Enter Your Email "
               required
             />
