@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import {Layout} from "./../../components/Layout/Layout";
+import { React, useState } from "react";
+import { Layout } from "./../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -93,7 +93,7 @@ const Register = () => {
               value={address}
               onChange={(e) => setAddress(e.target.value)}
               className="form-control"
-              id="exampleInputAddress"
+              id="exampleInputEmail1"
               placeholder="Enter Your Address"
               required
             />
@@ -104,7 +104,7 @@ const Register = () => {
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
               className="form-control"
-              id="exampleInputAnswer"
+              id="exampleInputEmail1"
               placeholder="What is Your Favorite sports"
               required
             />

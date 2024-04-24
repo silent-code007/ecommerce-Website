@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import {Layout} from "./../../components/Layout/Layout";
+import { React, useState } from "react";
+import { Layout } from "./../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -45,7 +45,7 @@ const ForgotPasssword = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="form-control"
-              id="exampleInputEmail"
+              id="exampleInputEmail1"
               placeholder="Enter Your Email "
               required
             />
@@ -56,7 +56,7 @@ const ForgotPasssword = () => {
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
               className="form-control"
-              id="exampleInputSport"
+              id="exampleInputEmail1"
               placeholder="Enter Your favorite Sport Name "
               required
             />
@@ -67,7 +67,7 @@ const ForgotPasssword = () => {
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               className="form-control"
-              id="exampleInputPassword"
+              id="exampleInputPassword1"
               placeholder="Enter Your Password"
               required
             />
