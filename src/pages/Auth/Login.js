@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { Layout } from "./../../components/Layout/Layout";
+import { Layout } from "./../../components/Layout/Layout.js";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -62,7 +62,7 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="form-control"
-              id="exampleInputPassword1"
+              id="exampleInputPassword"
               placeholder="Enter Your Password"
               required
             />
