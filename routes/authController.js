@@ -1,5 +1,5 @@
 import { hash } from "bcrypt";
-import { userModel } from "../models/UserModel.js";
+import { UserModel } from "../models/UserModel.js";
 
 import JWT from "jsonwebtoken";
 
@@ -28,7 +28,7 @@ export const registerController = async (req, res) => {
       return res.send({ message: "Answer is Required" });
     }
     //check user
-    const exisitingUser = await userModel.findOne({ email });
+    const exisitingUser = await UserModel.findOne({ email });
     //exisiting user
     if (exisitingUser) {
       return res.status(200).send({
@@ -39,7 +39,7 @@ export const registerController = async (req, res) => {
     //register user
     const hashedPassword = await hashPassword(password);
     //save
-    const user = await new userModel({
+    const user = await new UserModel({
       name,
       email,
       phone,
@@ -75,7 +75,7 @@ export const loginController = async (req, res) => {
       });
     }
     //check user
-    const user = await userModel.findOne({ email });
+    const user = await UserModel.findOne({ email });
     if (!user) {
       return res.status(404).send({
         success: false,
@@ -131,7 +131,7 @@ export const forgotPasswordController = async (req, res) => {
       res.status(400).send({ message: "New Password is required" });
     }
     //check
-    const user = await userModel.findOne({ email, answer });
+    const user = await UserModel.findOne({ email, answer });
     //validation
     if (!user) {
       return res.status(404).send({
@@ -140,7 +140,7 @@ export const forgotPasswordController = async (req, res) => {
       });
     }
     const hashed = await hashPassword(newPassword);
-    await userModel.findByIdAndUpdate(user._id, { password: hashed });
+    await UserModel.findByIdAndUpdate(user._id, { password: hashed });
     res.status(200).send({
       success: true,
       message: "Password Reset Successfully",
