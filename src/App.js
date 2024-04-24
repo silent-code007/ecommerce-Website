@@ -5,7 +5,7 @@ import Contact from "./pages/Contact";
 import Policy from "./pages/Policy";
 import PagenotFound from "./pages/PagenotFound";
 import Register from "./pages/Auth/Register";
-import { Toaster } from "react-hot-toast";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Login from "./pages/Auth/Login";
 import Dashboard from "./pages/user/Dashboard";
