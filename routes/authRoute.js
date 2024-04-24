@@ -6,7 +6,7 @@ import {
   forgotPasswordController,
 } from "../routes/authController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
-import ForgotPasssword from "../client/src/pages/Auth/ForgotPassword.js";
+import ForgotPasssword from "../client/src/pages/Auth/ForgotPassword.mjs";
 //route object
 
 const router = express.Router();
