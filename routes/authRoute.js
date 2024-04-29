@@ -6,7 +6,7 @@ import {
   forgotPasswordController,
 } from "../routes/authController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
-import ForgotPasssword from "../client/src/pages/Auth/ForgotPassword.mjs";
+
 //route object
 
 const router = express.Router();
@@ -28,9 +28,15 @@ router.post("/forgot-password", forgotPasswordController);
 
 router.get("/test", requireSignIn, isAdmin, testController);
 
-//protected route auth
+//protected user route auth
 
 router.get("/user-auth", requireSignIn, (req, res) => {
+  res.status(200).send({ ok: true });
+});
+
+//protected admin route auth
+
+router.get("/admin-auth", requireSignIn,isAdmin, (req, res) => {
   res.status(200).send({ ok: true });
 });
 export default router;
